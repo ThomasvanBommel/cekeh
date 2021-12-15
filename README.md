@@ -1,2 +1,2 @@
 # cekeh
-2D cooding game
+2D coding game
