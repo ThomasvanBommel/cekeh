@@ -36,12 +36,13 @@ window.onload = () => {
     );
 
     editor.setOption("extraKeys", {
-        "Ctrl-/": cm => {
-            cm.toggleComment();
-        }
+        "Ctrl-/": cm => cm.toggleComment(),
+        "Ctrl-Enter": () => run()
     });
 
-    console.log(editor);
+    for(let el of document.querySelectorAll(".year")){
+        el.innerText = new Date().getFullYear();
+    }
 };
 
 function run(){

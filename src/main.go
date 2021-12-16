@@ -1,36 +1,46 @@
 package main
 
 import (
-	"fmt"
 	"net/http"
+	"log"
 	"os"
 )
 
-func root(html string) func(http.ResponseWriter, *http.Request) {
+/**
+ * Respond to endpoint requests
+ * @param html []byte - Information to send to the requesting client
+ * @returns func(http.ResponseWriter, *http.Request)
+ */
+func respond(html []byte) func(http.ResponseWriter, *http.Request) {
 	return func(w http.ResponseWriter, req *http.Request) {
-		fmt.Fprintf(w, html)
+		log.Println(req.RemoteAddr, req.URL)
+
+		_, err := w.Write(html)
+
+		if err != nil {
+			log.Println("Error:", err)
+		}
 	}
 }
 
-func api(w http.ResponseWriter, req *http.Request) {
-	fmt.Fprintf(w, "api\n")
-}
-
+/**
+ * Start a web server and respond to endpoint requests
+ */
 func main() {
-	PORT := "8080"
-	rootHTML, err := os.ReadFile("root.html")
+	port := "8080"
+	home, err := os.ReadFile("home.html")
 
-	if err == nil {
-		fs := http.FileServer(http.Dir("./static"))
-		http.Handle("/static/", http.StripPrefix("/static/", fs))
-
-		http.HandleFunc("/", root(string(rootHTML)))
-		http.HandleFunc("/api/", api)
-
-		fmt.Println("Listening ... http://localhost:" + PORT)
-
-		http.ListenAndServe(":" + PORT, nil)
-	} else {
-		fmt.Println("Error:", err)
+	if err != nil {
+		log.Fatalln(err)
 	}
+
+	fs := http.FileServer(http.Dir("./static"))
+	http.Handle("/static/", http.StripPrefix("/static/", fs))
+
+	http.HandleFunc("/", respond(home))
+	http.HandleFunc("/api/", respond([]byte("api\n")))
+
+	log.Println("Listening...")
+
+	http.ListenAndServe(":" + port, nil)
 }
