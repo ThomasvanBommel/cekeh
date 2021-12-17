@@ -16,12 +16,30 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.64.0/addon/comment/comment.min.js" integrity="sha512-U0udq4Tvwzb+OiL6f7aak/n07mlIutTl+pEPtKoK0oOTF4Q9SkLOQYvKpIaCIM8CKTufd7szgeN9VDcgXDVvWg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <link rel="stylesheet" href="/static/css/main.style.css" />
-    <script src="/static/js/main.js"></script>
+    <!-- <script src="/static/js/main.js"></script> -->
+    <script src="/static/js/editor.js"></script>
+
+    <script>
+        window.onload = () => {
+            editor.init();
+
+            editor.addFile("main.js", "console.log('Hello!');");
+        };
+    </script>
 </head>
 <body>
     <main>
+        <div id="menu">
+            <button id="save" onclick="save();">Save (Ctrl-S)</button>
+            <div class="spacer"></div>
+            <button id="run">Run (Ctrl-Enter)</button>
+        </div>
+
         <canvas></canvas>
-        <button onclick="run();">Run (Ctrl-Enter)</button>
+
+        <ul id="tabs">
+            <li class="add">+</li>
+        </ul>
     </main>
     <footer>
         &copy; <span class="year"></span> Thomas vanBommel
