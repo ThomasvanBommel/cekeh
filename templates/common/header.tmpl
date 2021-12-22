@@ -1,0 +1,11 @@
+{{ define "common/header.tmpl" }}
+
+    <header>
+        <a href="/" class="logo">cekeh.com</a>
+        <div class="spacer"></div>
+        <a href="{{ if .user }}/profile{{ else }}/login{{ end }}" class="profile" title="{{ if .user }}Profile{{ else }}Login{{ end }}">
+            <img src="static/profile.svg" alt="Profile" />
+        </a>
+    </header>
+
+{{ end }}

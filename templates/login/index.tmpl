@@ -1,0 +1,36 @@
+{{ define "login/index.tmpl" }}
+    {{ template "common/base.tmpl" . }}
+{{ end }}
+
+{{ define "head" }}
+    <link rel="stylesheet" href="static/css/login-register.css" />
+{{ end }}
+
+{{ define "bracket" }}
+    <div class="bracket">
+        <div class="fill"></div>
+        <div class="vertical">
+            <div class="{{ if . }}fill{{ end }}"></div>
+            <div class="{{ if not . }}fill{{ end }}"></div>
+        </div>
+        <div class="fill"></div>
+    </div>
+{{ end }}
+
+{{ define "content" }}
+    <div id="login">
+        {{ template "bracket" true }}
+        <form action="/login" method="POST">
+            <p>Login</p>
+            <input type="text" name="username" id="username" placeholder="username" value="{{ if .username }}{{ .username }}{{ end }}" />
+            <input type="password" name="password" id="password" placeholder="password" />
+            <input type="submit" value="Login" />
+            <a href="/register" class="register">register</a>
+        </form>
+        {{ template "bracket" false }}
+    </div>
+
+    {{ if .error }}
+        <div id="error">{{ .error }}</div>
+    {{ end }}
+{{ end }}

@@ -1,0 +1,28 @@
+{{ define "common/base.tmpl" }}
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="shortcut icon" href="static/favicon.svg" type="image/svg+xml" />
+        <link rel="stylesheet" href="static/css/base.css" />
+
+        <title>{{ .title }}: cekeh.com</title>
+
+        {{ block "head" . }}{{ end }}
+    </head>
+    <body>
+        {{ template "common/header.tmpl" . }}
+
+        <main>
+            {{ block "content" . }}{{ end }}
+        </main>
+
+        {{ template "common/footer.tmpl" . }}
+    </body>
+    </html>
+
+{{ end }}

@@ -1,0 +1,77 @@
+#login, #register{
+    max-width: 100%;
+    width: max-content;
+    padding: var(--margin);
+    box-sizing: border-box;
+    margin: 0 auto;
+    display: flex;
+}
+
+#login form, #register form{
+    height: max-content;
+}
+
+#login p, #register p{
+    margin-bottom: 0;
+}
+
+#login input, #register input{
+    width: 100%;
+    display: block;
+    margin: var(--margin) 0;
+    box-sizing: border-box;
+}
+
+#login .register, #register .login{
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 75%;
+}
+
+#error{
+    width: 100%;
+    text-align: center;
+    color: red;
+    font-size: 75%;
+    margin: var(--margin);
+}
+
+/* BRACKET ----------------------------------------------------------------- */
+#register .bracket{
+    width: 2.5rem;
+    height: 13rem;
+}
+
+#login .bracket{
+    width: 2.5rem;
+    height: 9.5rem;
+}
+
+.bracket{
+    display: flex;
+    flex-direction: column;
+}
+
+.bracket > div:not(.vertical){
+    height: 0.75rem;
+}
+
+.bracket > div.vertical{
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.bracket .vertical div{
+    height: 100%;
+    flex: 1;
+}
+
+.bracket .vertical div.fill{
+    flex: 0.5;
+}
+
+.bracket .fill{
+    background-color: var(--primary-color);
+}

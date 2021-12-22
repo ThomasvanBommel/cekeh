@@ -1,0 +1,12 @@
+#!/bin/bash -e
+
+export PROJECT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+
+# build project if /bin/main does not exist
+if [ ! -f "$PROJECT_DIR/bin/main" ]; then
+    echo "$PROJECT_DIR/bin/main -- Does not exist... re-building project"
+    $PROJECT_DIR/build.sh
+fi
+
+# start project
+$PROJECT_DIR/bin/main
