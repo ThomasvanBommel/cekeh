@@ -1,5 +1,6 @@
 #!/bin/bash -e
 
+# get directory where this script is located
 export PROJECT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 SRC=$PROJECT_DIR/github.com/ThomasvanBommel/cekeh/
 
