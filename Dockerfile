@@ -9,4 +9,6 @@ COPY . .
 
 RUN ./build
 
+USER 9999
+
 CMD ./run

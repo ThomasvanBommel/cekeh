@@ -29,9 +29,9 @@ func main() {
 	}
 
 	router := setupRouter()
-	router.Run()
 
 	log.Println("Listening...")
+	router.Run()
 }
 
 func initializeTemplateMap() error {
