@@ -12,7 +12,6 @@ import (
 
 var PROJECT_DIR = os.Getenv("PROJECT_DIR")
 var GIN_MODE    = os.Getenv("GIN_MODE") 
-// var ENVIRONMENT = os.Getenv("ENVIRONMENT")
 
 var TEMPLATEDIR = PROJECT_DIR + "/templates/"
 var STATIC_DIR  = PROJECT_DIR + "/static/"
