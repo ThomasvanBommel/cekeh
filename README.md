@@ -6,8 +6,6 @@
 
 ## Running this project
 
----
-
 Locally
 ```bash
 ./run
