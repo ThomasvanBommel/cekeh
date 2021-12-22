@@ -2,8 +2,46 @@
 
 [cekeh.com](http://cekeh.com) website
 
+<br />
+
 ## Running this project
 
-1. Locally `./run` or `./build && ./run`
-2. Docker `sudo docker build --tag gocekeh . && sudo docker run --rm -ti -p 9000:8080  gocekeh`
-3. ~~Kubernetes~~ (coming soon)
+---
+
+Locally
+```bash
+./run
+
+# or
+
+./build && ./run
+```
+
+Docker
+```bash
+# build image
+sudo docker build --tag gocekeh .
+
+# run image
+sudo docker run --rm -ti -p 9000:8080  gocekeh
+
+# both
+sudo docker build --tag gocekeh . && sudo docker run --rm -ti -p 9000:8080  gocekeh
+```
+
+Podman
+```bash
+# build image
+sudo podman build --tag gocekeh .
+
+# run image
+sudo podman run --rm -ti -p 9000:8080  gocekeh
+
+# both
+sudo podman build --tag gocekeh . && sudo podman run --rm -ti -p 9000:8080  gocekeh
+```
+
+~~Kubernetes~~
+```bash
+# coming soon
+```
