@@ -30,6 +30,8 @@ func main() {
 
 	router := setupRouter()
 	router.Run()
+
+	log.Println("Listening...")
 }
 
 func initializeTemplateMap() error {
@@ -97,8 +99,6 @@ func login(ctx *gin.Context) {
 
 	if ctx.Request.Method == "POST" {
 		username, success := ctx.GetPostForm("username")
-
-		log.Println("POST", username, success)
 
 		if success {
 			context["username"] = username
